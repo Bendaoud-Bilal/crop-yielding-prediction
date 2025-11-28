@@ -22,7 +22,7 @@
                 <h3 class="card-text">Predicted Yield: {{ prediction }} Metric Tons per Hectare</h3>
             </div>
         </div>
-        <a href="/" class="btn btn-primary">Make Another Prediction</a>
+        <a href="{{ request.url_for('home') }}" class="btn btn-primary">Make Another Prediction</a>
     </div>
 </body>
 </html>

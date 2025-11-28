@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f7f7f7; }
+        .container { margin-top: 40px; max-width: 720px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Crop Recommendation</h1>
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        <form action="{{ request.url_for('crop_recommendation_predict') }}" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="nitrogen">Nitrogen (N)</label>
+                    <input type="number" step="any" name="nitrogen" class="form-control" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="phosphorus">Phosphorus (P)</label>
+                    <input type="number" step="any" name="phosphorus" class="form-control" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="potassium">Potassium (K)</label>
+                    <input type="number" step="any" name="potassium" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="number" step="any" name="temperature" class="form-control" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="humidity">Humidity (%)</label>
+                    <input type="number" step="any" name="humidity" class="form-control" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="ph">Soil pH</label>
+                    <input type="number" step="any" name="ph" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rainfall">Rainfall (mm)</label>
+                <input type="number" step="any" name="rainfall" class="form-control" required>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="{{ request.url_for('home') }}" class="btn btn-secondary">Crop Yield Predictor</a>
+                <button type="submit" class="btn btn-primary">Recommend Crop</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

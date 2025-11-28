@@ -21,7 +21,7 @@
             </div>
         {% endif %}
         
-        <form action="/predict" method="POST">
+        <form action="{{ request.url_for('predict') }}" method="POST">
             <div class="form-group">
                 <label for="crop">Crop Name</label>
                 <select name="crop" class="form-control" required>
@@ -67,6 +67,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Predict Yield</button>
         </form>
+        <div class="text-center mt-4">
+            <a href="{{ request.url_for('crop_recommendation_form') }}" class="btn btn-outline-secondary">Need a Crop Recommendation?</a>
+        </div>
     </div>
 </body>
 </html>

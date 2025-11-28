@@ -7,6 +7,7 @@ The application provides users with an interactive form where they can enter rel
 ## Features
 
 - Predict crop yield based on various inputs such as crop name, state, season, year, rainfall, fertilizer usage, and pesticide usage.
+- Recommend the most suitable crop for a given soil profile (N, P, K, temperature, humidity, pH, rainfall).
 - Optional inputs are supported (crop year, rainfall, fertilizer, and pesticide usage). If not provided, default values based on median values from the dataset are used.
 - User-friendly form with error handling to ensure proper inputs are provided.
 - Displays predicted crop yield in metric tons per hectare.
@@ -67,7 +68,7 @@ To run this project locally, you'll need to have Python 3.x installed. Additiona
    uvicorn app:app --reload
    ```
 
-6. **Open the UI** at `http://127.0.0.1:8000/` and submit predictions through the form.
+6. **Open the UI** at `http://127.0.0.1:8000/` to access the crop yield predictor or navigate to `/crop-recommendation` for crop suggestions.
 
 ### Running the automated tests
 
@@ -94,6 +95,7 @@ crop-yielding-prediction/
 │   └── result.html            # Prediction output page
 ├── tests/                     # Lightweight FastAPI smoke tests
 │   └── test_app.py
+└── yield_assets/              # Crop recommendation model + scalers
 └── .venv/ (optional)          # Local virtual environment
 ```
 
