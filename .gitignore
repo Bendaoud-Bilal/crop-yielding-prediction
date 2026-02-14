@@ -2,3 +2,10 @@ __pycache__/
 *.py[cod]
 *.log
 .venv/
+
+# Large model artifacts
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
